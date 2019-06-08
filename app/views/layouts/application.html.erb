@@ -13,6 +13,19 @@
     <% flash.each do |key, value| %>
       <%= content_tag :div, value, class: "flash" %>
     <% end %>
-    <%= yield %>
+    <div id="container">
+      <div id="content">
+        <%= yield %>
+        <hr>
+        <h4>
+          <% if logged_in? %>
+            <%= "Logged in as #{current_user.email}" %>
+            <%= link_to "(logout)", logout_path %>
+          <% else %>
+            <%= link_to "(login)", login_path %>
+          <% end %>
+        </h4>
+      </div>
+    </div>
   </body>
 </html>

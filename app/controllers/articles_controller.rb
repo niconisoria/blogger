@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
     include ArticlesHelper
 
+    before_action :require_login, except: [:index, :show]
+
     def index
         @articles = Article.all
     end
@@ -9,7 +11,7 @@ class ArticlesController < ApplicationController
         @article = Article.find(params[:id])
         @comment = Comment.new
         @comment.article_id = @article.id
-
+        @article.count_view
     end
 
     def new
