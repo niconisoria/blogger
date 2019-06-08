@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
           redirect_to article_path(@comment.article)
         else
           flash[:error] = "Something went wrong"
-          render 'new'
+          redirect_to article_path(params[:article_id], @comment)
         end
     end
 
