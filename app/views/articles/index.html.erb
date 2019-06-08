@@ -1,13 +1,13 @@
 <h1>All Articles</h1>
 
-<ul id="articles">
+<div class="collection">
   <% @articles.each do |article| %>
-    <li>
+    <div class="collection-item">
       <%= link_to article.title, article_path(article) %>
       <%= "views (#{article.views})" %>
-    </li>
+    </div>
   <% end %>
-</ul>
+</div>
 
 <% if logged_in? %>
   <%= link_to "Create a New Article", new_article_path, class: "new_article" %>

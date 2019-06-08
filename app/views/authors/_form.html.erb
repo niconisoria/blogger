@@ -2,7 +2,6 @@
   <% if author.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(author.errors.count, "error") %> prohibited this author from being saved:</h2>
-
       <ul>
       <% author.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,27 +10,27 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="input-field">
     <%= form.label :username %>
     <%= form.text_field :username %>
   </div>
 
-  <div class="field">
+  <div class="input-field">
     <%= form.label :email %>
     <%= form.text_field :email %>
   </div>
 
-  <div class="field">
+  <div class="input-field">
     <%= form.label :password %>
     <%= form.text_field :password %>
   </div>
 
-  <div class="field">
+  <div class="input-field">
     <%= form.label :password_confirmation %>
     <%= form.text_field :password_confirmation %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div>
+    <%= form.submit 'Submit', class: "btn red" %>
   </div>
 <% end %>

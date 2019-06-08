@@ -4,28 +4,20 @@
     <title>Blogger</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <% flash.each do |key, value| %>
-      <%= content_tag :div, value, class: "flash" %>
+      <%= content_tag :h5, value, class: "flash" %>
     <% end %>
     <div id="container">
       <div id="content">
         <%= yield %>
-        <hr>
-        <h4>
-          <% if logged_in? %>
-            <%= "Logged in as #{current_user.email}" %>
-            <%= link_to "(logout)", logout_path %>
-          <% else %>
-            <%= link_to "(login)", login_path %>
-          <% end %>
-        </h4>
       </div>
+      <%= render partial: 'layouts/footer' %>
     </div>
   </body>
 </html>

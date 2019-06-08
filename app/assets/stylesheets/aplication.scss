@@ -1,0 +1,46 @@
+@import "materialize";
+
+*{
+    text-align: center;
+}
+
+body, html{
+    height: 100%;
+}
+
+#container{
+    display: grid;
+    height: 100%;
+    grid-template-areas:
+    "page-content"
+    "footer";
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr 145px;
+}
+
+#content{
+    grid-area: page-content;
+    justify-self: center;
+}
+
+footer{
+    grid-area: footer;
+    display: grid;
+    height: 100%;
+    grid-template-areas:
+    "footer-content"
+    "footer-copyright";
+    grid-template-columns: 100%;
+}
+
+.footer-content{
+    grid-area: footer-content;
+}
+
+.footer-copyright{
+    grid-area: footer-copyright;
+}
+
+a{
+    color: red;
+}

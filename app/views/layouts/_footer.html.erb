@@ -1,0 +1,15 @@
+<footer class="page-footer black">
+<div class="footer-content"> 
+    <% if logged_in? %>
+        <%= "Logged in as #{current_user.email}" %>
+        <%= link_to "logout", logout_path, class: "btn red" %>
+    <% else %>
+        <%= link_to "login", login_path, class: "btn blue" %>
+    <% end %>
+</div>
+<div class="footer-copyright">
+    <div class="container">
+    © 2019 Nicolás Nisoria
+    </div>
+</div>
+</footer>
