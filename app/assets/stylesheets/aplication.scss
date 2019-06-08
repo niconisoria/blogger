@@ -14,8 +14,10 @@ body, html{
     grid-template-areas:
     "page-content"
     "footer";
-    grid-template-columns: 100%;
+    grid-template-columns: 50%;
     grid-template-rows: 1fr 145px;
+    justify-content: center;
+
 }
 
 #content{
