@@ -45,6 +45,10 @@ class ArticlesController < ApplicationController
 
     def destroy
         @article = Article.find(params[:id])
+        @image = @article.image
+        if @image.nil?
+            @image.purge_later
+        end
         if @article.destroy
             flash[:success] = 'Article was successfully deleted.'
             redirect_to articles_url

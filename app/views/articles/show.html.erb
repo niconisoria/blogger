@@ -5,6 +5,9 @@
     <%= link_to tag.name, tag_path(tag) %>
   <% end %>
 </p>
+ <% unless @article.image.blank? %>
+      <%= image_tag @article.image.variant(resize: "300x300") %><br/>
+<% end %>
 <p><%= @article.body %></p>
 <p><%= link_to "delete", article_path(@article), method: :delete , data: {confirm: "Do you really want to delete the article?"}%></p>
 <p><%= link_to "edit", edit_article_path(@article) %></p>

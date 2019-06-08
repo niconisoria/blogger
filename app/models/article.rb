@@ -2,6 +2,8 @@ class Article < ApplicationRecord
     has_many :comments
     has_many :taggings, dependent: :destroy
     has_many :tags, through: :taggings
+    has_one_attached :image
+    validates :image, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'], size_range: 1..2.megabytes }
     
     def tag_list
         self.tags.collect do |tag|
